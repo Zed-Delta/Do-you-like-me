@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Like Me?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Do You Like Me?</h1>
+    <div id="response"></div>
+    <button onclick="answer('Yes')">Yes</button>
+    <button onclick="answer('No')">No</button>
+
+    <script>
+        const messages = [
+            "Oh, that's okay. Let's try again.",
+            "That's interesting! Let's see if your answer changes.",
+            "No worries! I'm still curious.",
+            "I appreciate your honesty! How about now?",
+            "That's fair! Let's keep asking."
+        ];
+
+        let messageIndex = 0;
+
+        function answer(response) {
+            const responseDiv = document.getElementById('response');
+            if (response === 'Yes') {
+                responseDiv.innerHTML = "I'm glad to hear that!";
+            } else if (response === 'No') {
+                if (messageIndex < messages.length) {
+                    responseDiv.innerHTML = messages[messageIndex];
+                    messageIndex++;
+                } else {
+                    responseDiv.innerHTML = "Still no? Let's keep trying!";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
